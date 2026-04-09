@@ -1,5 +1,6 @@
 # MnemonicTriage
-Forensic triage tool for validating BIP-39 cryptocurrency mnemonic phrases. Wordlist + checksum validation only — no key derivation, no network access. Supports 9 languages and batch mode.
+
+A forensic triage tool for validating BIP-39 cryptocurrency mnemonic phrases against the official wordlist and checksum specification.
 
 ## Intended Use
 
@@ -18,11 +19,42 @@ This tool is designed for **digital forensic examiners and law enforcement** to 
 
 ## Installation
 
+### 1. Clone the repository
 ```bash
 git clone https://github.com/your-org/MnemonicTriage.git
 cd MnemonicTriage
+```
+
+### 2. Install the required dependency
+The `mnemonic` library **must be installed before running the script** or you will get a `ModuleNotFoundError`.
+
+```bash
+pip install mnemonic
+```
+
+If `pip` doesn't work, try:
+```bash
+pip3 install mnemonic
+```
+
+Or with an explicit Python version:
+```bash
+python3 -m pip install mnemonic
+```
+
+### 3. Verify the install
+```bash
+python3 -c "from mnemonic import Mnemonic; print('mnemonic installed OK')"
+```
+
+You should see `mnemonic installed OK`. If you get an error, re-run step 2.
+
+### Alternative: install all dependencies at once
+```bash
 pip install -r requirements.txt
 ```
+
+> **Note for IDLE users:** Install the package via Terminal/Command Prompt first, then restart IDLE before running the script.
 
 ## Usage
 
@@ -81,4 +113,3 @@ MnemonicTriage is intended solely for lawful forensic examination of evidence ob
 ## License
 
 MIT License — see [LICENSE](LICENSE)
-
